@@ -1,4 +1,3 @@
-
 # Banco Web
 
 ## Descrição
@@ -15,6 +14,11 @@ Antes de executar o `Banco Web`, certifique-se de que a API esteja configurada e
 - **Bibliotecas**:
   - [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API): Para chamadas HTTP
   - [dotenv](https://github.com/motdotla/dotenv): Para configuração de variáveis de ambiente
+- **Testes E2E**:
+  - [Selenium WebDriver](https://www.selenium.dev/selenium/web/)
+  - [Mocha](https://mochajs.org/)
+  - [Chai](https://www.chaijs.com/)
+  - [Mochawesome](https://github.com/adamgruber/mochawesome): Para relatórios de teste
 
 ## Instalação e Configuração
 
@@ -45,6 +49,20 @@ Antes de executar o `Banco Web`, certifique-se de que a API esteja configurada e
    ```
    http://localhost:4000
    ```
+
+## Execução dos Testes E2E
+
+Os testes E2E estão localizados no diretório `./tests/e2e/login` e utilizam Selenium, Mocha e Chai para validação. Um relatório visual será gerado com o Mochawesome após a execução dos testes.
+
+### Rodando os Testes
+
+Execute o comando abaixo para rodar os testes:
+```bash
+npm test
+```
+
+### Relatórios de Teste
+Os relatórios serão gerados no formato HTML no diretório `./mochawesome-report`. Abra o arquivo `mochawesome.html` no navegador para visualizar os resultados.
 
 ## Funcionalidades
 
@@ -85,9 +103,13 @@ Antes de executar o `Banco Web`, certifique-se de que a API esteja configurada e
 │   │   └── contas.js           # Lógica de contas
 │   └── index.html              # Interface principal
 ├── app.js                      # Servidor Express
+├── tests
+│   └── e2e
+│       └── login               # Testes E2E
 ├── .env                        # Configurações de ambiente
 ├── package.json                # Configuração do projeto
-└── README.md                   # Documentação
+├── mochawesome-report          # Relatórios de testes
+├── README.md                   # Documentação
 ```
 
 ## Melhorias Implementadas
