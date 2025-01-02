@@ -2,7 +2,7 @@ const { Builder, Browser, By, until } = require('selenium-webdriver');
 const expect = require('chai').expect;
 
 describe('Login', () => {
-
+    
     it('usando credenciais válidas', async () => {
         // Arrange (Preparar)
         const navegador = await new Builder()
@@ -16,7 +16,12 @@ describe('Login', () => {
         await navegador.findElement(By.css('.btn')).click();
 
         // Assert (Checar)
-        const titulo = await navegador.findElement(By.css('#app-section h4')).getText();
+        const tituloElemento = await navegador.wait(
+            until.elementLocated(By.css('#app-section h4')),
+            10000 
+        );
+
+        const titulo = await tituloElemento.getText();
         expect(titulo).to.be.eq('Realizar Transferência');
     });
 });
